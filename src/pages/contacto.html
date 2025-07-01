@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas La Hacienda</title>
+    <base target="_self">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("65v3chNA4E8r4yaXnCAF6"); // Reemplaza con tu USER ID
+  })();
+
+  function enviarCorreo(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_wkm8ghd', 'template_rv55uqj', '#contacto-form')
+      .then(function(response) {
+        alert('Mensaje enviado correctamente ✅');
+        document.getElementById("contacto-form").reset();
+      }, function(error) {
+        alert('Error al enviar el mensaje ❌');
+        console.log(error);
+      });
+  }
+</script>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/src/pages/index.html" class="logo">Cabañas La Hacienda</a>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="/src/pages/index.html">Inicio</a></li>
+                    <li><a href="/src/pages/galeria.html">Galería</a></li>
+                    <li><a href="/src/pages/servicios.html">Servicios</a></li>
+                    <li><a href="/src/pages/reservacion.html">Reservas</a></li>
+                    <li><a href="/src/pages/ubicacion.html">Ubicación</a></li>
+                    <li><a href="/src/pages/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/img/pexels-enginakyurt-3011574.jpg'); height: 60vh;">
+            <div class="hero-content">
+                <h1>Contacto</h1>
+                <p>Estamos aquí para ayudarte a planificar tu escapada perfecta</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contáctanos</h2>
+                    <p>Envíanos tu consulta y te responderemos en minutos</p>
+                </div>
+                <div class="form-container">
+                   <form id="contacto-form" onsubmit="enviarCorreo(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <select id="asunto" name="asunto" class="form-control" required>
+                            <option value="" disabled selected>Selecciona un asunto</option>
+                            <option value="consulta">Consulta General</option>
+                            <option value="reserva">Consulta sobre Reservas</option>
+                            <option value="grupos">Grupos y Eventos</option>
+                            <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Otras Formas de Contacto</h2>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Teléfono</h3>
+                        <p>+504 9835-4282<br>Lunes a Domingo: 7:00 am - 5:00 pm</p>
+                        <a href="tel:+541112345678" class="btn">Llamar ahora</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>+504 9835-4282<br>Atención rápida por mensaje<br>Respuesta en minutos</p>
+                        <a href="https://wa.me/96270105" class="btn">Enviar mensaje</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Correo Electrónico</h3>
+                        <p>fernanpadi1000@gmail.com<br>Consultas generales y reservas</p>
+                        <a href="mailto:fernanpadi1000@gmail.com" class="btn">Enviar email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Cabañas La Hacienda</h3>
+                    <p>Tu refugio perfecto en la naturaleza. Disfruta de la tranquilidad y belleza de nuestros entornos naturales.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                    <li><a href="/src/pages/index.html">Inicio</a></li>
+                    <li><a href="/src/pages/galeria.html">Galería</a></li>
+                    <li><a href="/src/pages/servicios.html">Servicios</a></li>
+                    <li><a href="/src/pages/reservacion.html">Reservas</a></li>
+                    <li><a href="/src/pages/ubicacion.html">Ubicación</a></li>
+                    <li><a href="/src/pages/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Ruta 123, Valle del Bosque</p>
+                    <p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@cabanasdelbosque.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Cabañas del Bosque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/src/js/main.js"></script>
+</body>
+</html>
