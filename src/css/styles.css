@@ -1,11 +1,13 @@
 :root {
-    --primary: #5a7247;
-    --primary-dark: #3a4a2e;
-    --secondary: #d4b483;
-    --light: #f8f5f0;
-    --dark: #333;
-    --text: #555;
+    --primary: #5a7247; /* Verde bosque */
+    --primary-dark: #3a4a2e; /* Verde bosque oscuro */
+    --secondary: #d4b483; /* Tostado/Oro suave */
+    --light: #f8f5f0; /* Blanco roto / Crema */
+    --dark: #333; /* Gris oscuro para elementos */
+    --text: #444; /* Gris oscuro más suave para texto general */
     --white: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -17,7 +19,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.7; /* Ligeramente más espaciado para mejor legibilidad */
     background-color: var(--light);
 }
 
@@ -25,6 +27,7 @@ h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     color: var(--primary-dark);
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .container {
@@ -37,7 +40,7 @@ h1, h2, h3, h4 {
 /* Header */
 .header {
     background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow-light); /* Sombra más pronunciada pero suave */
     position: fixed;
     width: 100%;
     top: 0;
@@ -48,28 +51,33 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.9rem 0; /* Menos padding vertical para un header más compacto */
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Ligeramente más grande */
     font-weight: 700;
     color: var(--primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.logo span {
-    color: var(--secondary);
+.logo:hover {
+    color: var(--primary-dark);
 }
 
 .nav-toggle {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Ícono más grande */
     color: var(--primary);
     cursor: pointer;
     display: none;
+    transition: color 0.3s ease;
+}
+.nav-toggle:hover {
+    color: var(--primary-dark);
 }
 
 .nav-menu {
@@ -78,30 +86,33 @@ h1, h2, h3, h4 {
 }
 
 .nav-menu li {
-    margin-left: 2rem;
+    margin-left: 2.5rem; /* Más espacio entre elementos del menú */
 }
 
 .nav-menu a {
     color: var(--dark);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.2s; /* Añadir transform para hover */
     position: relative;
+    padding: 5px 0; /* Padding para el efecto de underline */
 }
 
 .nav-menu a:hover {
     color: var(--primary);
+    transform: translateY(-2px); /* Pequeño levantamiento al pasar el mouse */
 }
 
 .nav-menu a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 3px; /* Línea más gruesa */
     background: var(--primary);
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s;
+    bottom: -8px; /* Más abajo para no chocar con el texto */
+    left: 50%; /* Empezar desde el centro */
+    transform: translateX(-50%); /* Centrar la línea */
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de aceleración */
 }
 
 .nav-menu a:hover::after {
@@ -110,230 +121,162 @@ h1, h2, h3, h4 {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/img/pexels-zoe13c-2183521.jpg') no-repeat center center/cover;
+    min-height: 100vh; /* Usar min-height para asegurar que sea al menos 100vh */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), /* Opacidad ligeramente mayor */
+                url('/public/img/pexels-zoe13c-2183521.jpg') no-repeat center bottom / cover; /* Ajustar posición de fondo */
     display: flex;
     align-items: center;
+    justify-content: center; /* Centrar horizontalmente también */
     text-align: center;
     color: var(--white);
-    margin-top: 70px;
+    margin-top: 70px; /* Ajustar según la altura final del header */
+    padding: 2rem 0; /* Asegurar padding en caso de contenido pequeño */
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px; /* Un poco más ancho */
     margin: 0 auto;
     padding: 2rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Sombra de texto para mejor legibilidad */
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem; /* Más grande para impacto */
     margin-bottom: 1.5rem;
     color: var(--white);
+    letter-spacing: -1px; /* Ligeramente más apretado */
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem; /* Más grande */
+    margin-bottom: 2.5rem; /* Más espacio */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn {
     display: inline-block;
-    background-color: var(--secondary);
-    color: var(--dark);
-    padding: 0.8rem 2rem;
+    padding: 1rem 2.5rem; /* Más padding */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s;
-    border: none;
+    transition: all 0.3s ease-in-out; /* Transición más suave */
+    border: 2px solid transparent; /* Borde transparente por defecto */
     cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    background-color: var(--primary);
-    color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px) scale(1.02); /* Más pronunciado */
+    box-shadow: 0 8px 20px var(--shadow-medium); /* Sombra más definida */
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: var(--white);
+    border-color: var(--primary);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
 }
 
-/* Footer */
-.footer {
-    background-color: var(--primary-dark);
-    color: var(--light);
-    padding: 4rem 0 0;
+.btn-secondary { /* Nuevo estilo para botones secundarios */
+    background-color: var(--secondary);
+    color: var(--dark);
+    border-color: var(--secondary);
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    color: var(--secondary);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-}
-
-.footer-section.about p {
-    margin-bottom: 1.5rem;
-}
-
-.socials {
-    margin-top: 1rem;
-}
-
-.socials a {
-    display: inline-block;
-    margin-right: 1rem;
-    color: var(--light);
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-.socials a:hover {
-    color: var(--secondary);
-}
-
-.footer-section.links ul {
-    list-style: none;
-}
-
-.footer-section.links li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-section.links a {
-    color: var(--light);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-section.links a:hover {
-    color: var(--secondary);
-}
-
-.footer-section.contact p {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-
-.footer-section.contact i {
-    margin-right: 0.8rem;
-    color: var(--secondary);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1.5rem 0;
+.btn-secondary:hover {
     background-color: var(--primary);
-    font-size: 0.9rem;
+    color: var(--white);
+    border-color: var(--primary);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: var(--white);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        transition: left 0.3s;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 1rem 0;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-}
 /* Common sections */
 .section {
-    padding: 5rem 0;
+    padding: 6rem 0; /* Más padding para más "aire" */
+}
+
+.section.bg-light {
+    background-color: var(--white); /* Usar blanco puro para la sección clara */
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem; /* Más espacio */
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Más grande */
     position: relative;
     display: inline-block;
     padding-bottom: 1rem;
+    margin-bottom: 0.75rem; /* Ajuste de margen */
 }
 
 .section-title h2::after {
     content: '';
     position: absolute;
-    width: 50%;
-    height: 3px;
+    width: 60px; /* Ancho fijo para la línea */
+    height: 4px; /* Línea más gruesa */
     background-color: var(--secondary);
     bottom: 0;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%); /* Centrar la línea */
+    border-radius: 2px; /* Bordes ligeramente redondeados */
+    animation: revealLine 1s forwards cubic-bezier(0.19, 1, 0.22, 1); /* Animación al cargar */
+    animation-delay: 0.2s; /* Pequeño retraso */
+    opacity: 0; /* Iniciar invisible */
+}
+@keyframes revealLine {
+    from { width: 0; opacity: 0; }
+    to { width: 60px; opacity: 1; }
+}
+
+
+.section-title p {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 700px;
+    margin: 0.5rem auto 0;
 }
 
 /* Gallery */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Más flexible para pantallas */
+    gap: 1.8rem; /* Más espacio */
     margin-top: 2rem;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    border-radius: 12px; /* Más redondeado */
+    box-shadow: 0 8px 25px var(--shadow-light); /* Sombra más suave y extendida */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.01); /* Efecto más suave */
+    box-shadow: 0 15px 35px var(--shadow-medium); /* Sombra al hover */
 }
 
 .gallery-item img {
     width: 100%;
-    height: 250px;
+    height: 280px; /* Un poco más de altura */
     object-fit: cover;
     display: block;
-    transition: transform 0.5s;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición más lenta y suave */
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Zoom más pronunciado */
 }
 
 .gallery-caption {
@@ -341,44 +284,70 @@ h1, h2, h3, h4 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent); /* Gradiente más oscuro */
     color: var(--white);
-    padding: 1rem;
+    padding: 1.2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Siempre visible */
 }
 
-/* Services */
-.services {
+/* Services / Testimonials */
+.services { /* Reutilizado para testimonios también, buen uso */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* Más espacio */
+    margin-top: 2.5rem;
 }
 
 .service-card {
     background-color: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
+    padding: 2.5rem; /* Más padding */
+    border-radius: 12px; /* Más redondeado */
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px); /* Desplazamiento más notorio */
+    box-shadow: 0 15px 35px var(--shadow-medium);
 }
 
 .service-icon {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Ícono más grande */
     color: var(--primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem; /* Más espacio */
 }
 
 .service-card h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+}
+
+/* Testimonial Specific Styles (to differentiate from services) */
+.service-card p {
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
-/* Form styles */
-.form-container {
+.service-card h3 {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+.service-card .service-icon i.fa-quote-left {
+    color: var(--secondary); /* Color diferente para ícono de cita */
+    font-size: 2.8rem;
+}
+
+
+/* Form styles - No se incluye aquí en index.html pero se mantiene para referencia */
+/* .form-container {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--white);
@@ -409,41 +378,370 @@ h1, h2, h3, h4 {
 .form-control:focus {
     outline: none;
     border-color: var(--primary);
+} */
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--light);
+    padding: 4.5rem 0 0; /* Más padding arriba */
 }
 
-/* Map */
-.map-container {
-    height: 400px;
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste de min-width */
+    gap: 2.5rem; /* Más espacio */
+    margin-bottom: 2.5rem;
+}
+
+.footer-section h3 {
+    color: var(--secondary);
+    margin-bottom: 1.8rem; /* Más espacio */
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.footer-section h3::after { /* Pequeña línea debajo de los títulos del footer */
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+}
+
+.footer-section.about p {
+    margin-bottom: 1.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.socials {
+    margin-top: 1.2rem;
+}
+
+.socials a {
+    display: inline-block;
+    margin-right: 1.2rem;
+    color: var(--light);
+    font-size: 1.5rem; /* Íconos más grandes */
+    transition: color 0.3s, transform 0.2s;
+}
+
+.socials a:hover {
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.footer-section.links ul {
+    list-style: none;
+}
+
+.footer-section.links li {
+    margin-bottom: 1rem; /* Más espacio */
+}
+
+.footer-section.links a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+    font-size: 0.95rem;
+}
+
+.footer-section.links a:hover {
+    color: var(--secondary);
+    transform: translateX(5px); /* Pequeño desplazamiento */
+}
+
+.footer-section.contact p {
+    display: flex;
+    align-items: flex-start; /* Alinear arriba si el texto es largo */
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.footer-section.contact i {
+    margin-right: 0.8rem;
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-top: 3px; /* Ajuste para alinear con el texto */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.8rem 0; /* Más padding */
+    background-color: var(--primary);
+    font-size: 0.85rem;
+    color: var(--light);
+}
+
+/* Responsive */
+@media (max-width: 992px) { /* Tabletas */
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .section-title h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) { /* Móviles */
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 66px; /* Ajustar según la altura real del header en móviles */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 66px);
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 0;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 10px 20px var(--shadow-medium);
+        overflow-y: auto; /* Para menús largos */
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1.5rem 0; /* Más espacio entre elementos del menú móvil */
+    }
+
+    .nav-menu a {
+        font-size: 1.3rem; /* Texto más grande en menú móvil */
+        color: var(--primary-dark);
+    }
+    .nav-menu a::after {
+        background: var(--primary-dark);
+    }
+
+    .hero {
+        margin-top: 66px;
+        min-height: 70vh; /* Menos altura para mostrar más contenido inicial */
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .btn {
+        padding: 0.75rem 2rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+    .section-title p {
+        font-size: 1rem;
+    }
+
+    .gallery-item img {
+        height: 220px; /* Menor altura en móvil */
+    }
+    .gallery {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .services {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .service-card {
+        padding: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        text-align: center;
+    }
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .footer-section.contact p {
+        justify-content: center;
+    }
+    .socials {
+        justify-content: center;
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) { /* Pequeños móviles */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 0.95rem;
+    }
+    .logo {
+        font-size: 1.6rem;
+    }
+}
+
+/* CONTACTO & RESERVACION - Formulario y Contacto Info */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem; /* Espacio entre las columnas */
+    margin-top: 3rem;
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+.contact-info, .form-container.reservation-form {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info:hover, .form-container.reservation-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+}
+
+.contact-info h3, .form-container h3 {
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--text);
+}
+
+.contact-info p i {
+    color: var(--primary);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.contact-info .socials {
     margin-top: 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar los íconos sociales */
+}
+.contact-info .socials a {
+    font-size: 1.8rem; /* Íconos más grandes */
+    margin: 0 0.8rem;
+}
+
+/* Form Specific Styles (already in main section, just confirming overrides/consistency) */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1.2rem; /* Más padding para los inputs */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Más redondeado */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--dark);
+    background-color: var(--light); /* Fondo ligeramente gris */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(90, 114, 71, 0.2); /* Sombra de foco más suave */
+}
+
+textarea.form-control {
+    resize: vertical; /* Permitir redimensionar verticalmente */
+    min-height: 120px;
+}
+
+.btn[type="submit"] {
+    width: 100%; /* Botón de submit ocupa todo el ancho */
+    padding: 1.2rem; /* Más padding */
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+/* MAP Styles */
+.map-container {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden; /* Para que el iframe respete el border-radius */
+    box-shadow: 0 8px 25px var(--shadow-light);
+    margin-top: 4rem; /* Separación del contenido superior */
 }
 
 .map-container iframe {
     width: 100%;
-    height: 100%;
-    border: none;
+    height: 450px; /* Altura estándar del mapa */
+    border: 0;
+    display: block; /* Elimina espacio extra debajo del iframe */
 }
 
-/* Contact info */
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+/* Specific class for padding on main content to avoid header overlap */
+.main-content-padding {
+    padding-top: 100px; /* Ajusta según la altura de tu header fijo + un poco de espacio */
+    /* En desktop, el header es aprox 70px. 100px da 30px de espacio extra */
 }
 
-.contact-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+/* Gallery full page - additional grid columns for larger screens */
+.gallery.gallery-full {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mantener flexible */
+}
+@media (min-width: 992px) { /* 3 columnas en pantallas grandes */
+    .gallery.gallery-full {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1200px) { /* 4 columnas en pantallas muy grandes */
+    .gallery.gallery-full {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
-.contact-icon {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
+/* Ajustes Responsive para padding superior */
+@media (max-width: 768px) {
+    .main-content-padding {
+        padding-top: 80px; /* Ajustar para móviles, donde el header podría ser más compacto */
+    }
+    .contact-grid {
+        gap: 2rem;
+    }
+    .contact-info h3, .form-container h3 {
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 480px) {
+    .main-content-padding {
+        padding-top: 70px; /* Ajuste para pantallas muy pequeñas */
+    }
+    .contact-info, .form-container.reservation-form {
+        padding: 1.8rem;
+    }
 }

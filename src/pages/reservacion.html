@@ -30,91 +30,55 @@
     </header>
 
     <main>
-        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/img/pexels-mateas-petru-210015-673788.jpg'); height: 60vh;">
-            <div class="hero-content">
-                <h1>Reserva tu Cabaña</h1>
-                <p>Planifica tu escapada perfecta a la naturaleza</p>
-            </div>
-        </section>
-
-        <section class="section">
+        <section class="section main-content-padding">
             <div class="container">
                 <div class="section-title">
-                    <h2>Consulta de Disponibilidad</h2>
-                    <p>Completa el formulario para verificar fechas y realizar tu reserva</p>
+                    <h2>Realiza tu Reserva</h2>
+                    <p>Completa el formulario para reservar tu cabaña ideal y planificar tu escapada.</p>
                 </div>
-                <div class="form-container">
-                    <form id="reserva-form">
+
+                <div class="form-container reservation-form">
+                    <h3>Detalles de la Reserva</h3>
+                    <form id="reservation-form" onsubmit="enviarReserva(event)">
                         <div class="form-group">
-                            <label for="fecha-llegada">Fecha de Llegada</label>
-                            <input type="date" id="fecha-llegada" class="form-control" required>
+                            <label for="nombre-reserva">Nombre Completo:</label>
+                            <input type="text" id="nombre-reserva" name="nombre" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="fecha-salida">Fecha de Salida</label>
-                            <input type="date" id="fecha-salida" class="form-control" required>
+                            <label for="email-reserva">Correo Electrónico:</label>
+                            <input type="email" id="email-reserva" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="tipo-cabana">Tipo de Cabaña</label>
-                            <select id="tipo-cabana" class="form-control" required>
-                                <option value="" disabled selected>Selecciona una opción</option>
-                                <option value="familiar">Cabaña Familiar (hasta 6 personas)</option>
-                                <option value="romantica">Cabaña Romántica (2 personas)</option>
-                                <option value="grupal">Cabaña Grupal (hasta 8 personas)</option>
+                            <label for="telefono-reserva">Teléfono:</label>
+                            <input type="tel" id="telefono-reserva" name="telefono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-cabana">Tipo de Cabaña:</label>
+                            <select id="tipo-cabana" name="tipoCabana" class="form-control" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="familiar">Cabaña Familiar</option>
+                                <option value="romantica">Cabaña Romántica</option>
+                                <option value="grupal">Cabaña Grupal</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="personas">Número de Personas</label>
-                            <input type="number" id="personas" class="form-control" min="1" max="8" required>
+                            <label for="fecha-llegada">Fecha de Llegada:</label>
+                            <input type="date" id="fecha-llegada" name="fechaLlegada" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" class="form-control" required>
+                            <label for="fecha-salida">Fecha de Salida:</label>
+                            <input type="date" id="fecha-salida" name="fechaSalida" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="huespedes">Número de Huéspedes:</label>
+                            <input type="number" id="huespedes" name="huespedes" class="form-control" min="1" required>
                         </div>
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" class="form-control" required>
+                            <label for="comentarios">Comentarios Adicionales:</label>
+                            <textarea id="comentarios" name="comentarios" rows="4" class="form-control"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje Adicional</label>
-                            <textarea id="mensaje" class="form-control" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Consultar Disponibilidad</button>
+                        <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
                     </form>
-                </div>
-            </div>
-        </section>
-
-        <section class="section bg-light">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Políticas de Reserva</h2>
-                </div>
-                <div class="services">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <h3>Check-in / Check-out</h3>
-                        <p>Check-in: 15:00 hs | Check-out: 10:00 hs. Consultar por horarios flexibles según disponibilidad.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <h3>Formas de Pago</h3>
-                        <p>Aceptamos efectivo, transferencia bancaria y todas las tarjetas de crédito.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-ban"></i>
-                        </div>
-                        <h3>Cancelaciones</h3>
-                        <p>Cancelación sin cargo hasta 7 días antes. Consultar políticas para fechas especiales.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -135,12 +99,12 @@
                 <div class="footer-section links">
                     <h3>Enlaces rápidos</h3>
                     <ul>
-                    <li><a href="/src/pages/index.html">Inicio</a></li>
-                    <li><a href="/src/pages/galeria.html">Galería</a></li>
-                    <li><a href="/src/pages/servicios.html">Servicios</a></li>
-                    <li><a href="/src/pages/reservacion.html">Reservas</a></li>
-                    <li><a href="/src/pages/ubicacion.html">Ubicación</a></li>
-                    <li><a href="/src/pages/contacto.html">Contacto</a></li>
+                        <li><a href="/src/pages/index.html">Inicio</a></li>
+                        <li><a href="/src/pages/galeria.html">Galería</a></li>
+                        <li><a href="/src/pages/servicios.html">Servicios</a></li>
+                        <li><a href="/src/pages/reservacion.html">Reservas</a></li>
+                        <li><a href="/src/pages/ubicacion.html">Ubicación</a></li>
+                        <li><a href="/src/pages/contacto.html">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-section contact">
@@ -152,10 +116,76 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Cabañas del Bosque. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Cabañas La Hacienda. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function() {
+        // Usa el mismo User ID de EmailJS que usas para el formulario de contacto
+        emailjs.init("rFedF0yAlJlIJYk1b"); // REEMPLAZA CON TU USER ID REAL DE EMAILJS
+      })();
+
+      function enviarReserva(e) {
+        e.preventDefault();
+
+        // Validar que la fecha de salida sea posterior a la fecha de llegada
+        const fechaLlegadaInput = document.getElementById('fecha-llegada');
+        const fechaSalidaInput = document.getElementById('fecha-salida');
+
+        const fechaLlegada = new Date(fechaLlegadaInput.value);
+        const fechaSalida = new Date(fechaSalidaInput.value);
+
+        if (fechaSalida <= fechaLlegada) {
+            alert('La fecha de salida debe ser posterior a la fecha de llegada.');
+            return false; // Detener el envío del formulario
+        }
+
+        // Si la validación pasa, enviar con EmailJS
+        emailjs.sendForm('service_4sse7ds', 'template_uf59j1m', '#reservation-form')
+          .then(function(response) {
+            alert('¡Tu solicitud de reserva ha sido enviada! Te contactaremos pronto ✅');
+            document.getElementById("reservation-form").reset();
+          }, function(error) {
+            alert('Error al enviar la reserva ❌: ' + JSON.stringify(error));
+          });
+      }
+
+      // Opcional: Deshabilitar fechas pasadas en los calendarios
+      document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+
+        const minDate = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById('fecha-llegada').setAttribute('min', minDate);
+        document.getElementById('fecha-salida').setAttribute('min', minDate);
+
+        // Cuando cambia la fecha de llegada, ajustar la fecha mínima de salida
+        document.getElementById('fecha-llegada').addEventListener('change', function() {
+            const arrivalDate = new Date(this.value);
+            arrivalDate.setDate(arrivalDate.getDate() + 1); // Salida debe ser al menos al día siguiente
+            
+            const arrivalDay = arrivalDate.getDate().toString().padStart(2, '0');
+            const arrivalMonth = (arrivalDate.getMonth() + 1).toString().padStart(2, '0');
+            const arrivalYear = arrivalDate.getFullYear();
+            
+            const minDepartureDate = `${arrivalYear}-${arrivalMonth}-${arrivalDay}`;
+            document.getElementById('fecha-salida').setAttribute('min', minDepartureDate);
+
+            // Asegurarse de que si la fecha de salida actual es anterior a la nueva mínima, se borre
+            if (new Date(fechaSalidaInput.value) <= arrivalDate) {
+                fechaSalidaInput.value = '';
+            }
+        });
+      });
+    </script>
     <script src="/src/js/main.js"></script>
 </body>
 </html>
