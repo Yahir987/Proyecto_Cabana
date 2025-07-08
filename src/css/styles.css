@@ -745,3 +745,389 @@ textarea.form-control {
         padding: 1.8rem;
     }
 }
+
+/* --- Styles for Reservation Search Bar (like the image) --- */
+.reservation-search-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    justify-content: center; /* Center items for better appearance */
+}
+
+.reservation-search-container .form-group {
+    flex: 1; /* Allows items to grow and shrink */
+    min-width: 180px; /* Minimum width before wrapping */
+    margin-bottom: 0; /* Override default form-group margin */
+}
+
+.reservation-search-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.reservation-search-container .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #555;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-search-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.reservation-search-container .btn-search {
+    padding: 12px 30px;
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.reservation-search-container .btn-search:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Styles for Cabin Listing (like the image) --- */
+.cabin-listing-container {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures image corners are rounded */
+    margin-top: 30px; /* Space between search and listing */
+    flex-direction: column; /* Default to column for small screens */
+}
+
+@media (min-width: 768px) {
+    .cabin-listing-container {
+        flex-direction: row; /* Row for larger screens */
+    }
+}
+
+.cabin-listing-image {
+    flex: 1; /* Takes up available space */
+    min-width: 300px; /* Ensures image has a decent size */
+    height: 250px; /* Fixed height for image container */
+    overflow: hidden;
+}
+
+.cabin-listing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area nicely */
+    display: block;
+}
+
+.cabin-listing-details {
+    flex: 2; /* Details take more space */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabin-listing-details h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.cabin-listing-details .stars {
+    color: #ffc107; /* Gold for stars */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.cabin-listing-details .location {
+    color: #777;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+.cabin-listing-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cabin-listing-amenities span {
+    background-color: #e9ecef;
+    color: #555;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.cabin-listing-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Spacing for responsiveness */
+    margin-top: auto; /* Pushes content to the bottom */
+}
+
+.cabin-listing-price-info {
+    text-align: right; /* Align price to the right */
+}
+
+.cabin-listing-price {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #333;
+    line-height: 1;
+}
+
+.cabin-listing-guests {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.cabin-listing-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Pushes rating to the right on large screens */
+}
+
+@media (max-width: 767px) {
+    .cabin-listing-rating {
+        margin-left: 0; /* Remove auto margin on small screens */
+        width: 100%; /* Take full width on small screens */
+        justify-content: flex-end; /* Align to end */
+        margin-bottom: 15px; /* Add some space below rating */
+    }
+    .cabin-listing-price-info {
+        text-align: left; /* Align price to the left on small screens */
+    }
+    .cabin-listing-bottom {
+        justify-content: space-between; /* Distribute items */
+    }
+}
+
+
+.cabin-listing-rating .rating-text {
+    font-weight: 600;
+    color: #333;
+}
+
+.cabin-listing-rating .rating-score {
+    background-color: #007bff; /* Blue background for score */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.cabin-listing-book-btn {
+    background-color: #007bff; /* Primary blue for book button */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cabin-listing-book-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+/* --- Modal (Pop-up) Styles Mejorados --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px 40px 50px; /* Aumenta el padding horizontal */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 550px; /* Reducimos el ancho máximo para que no sea tan extenso */
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box; 
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 2px solid #eee; /* Línea sutil para separar el título */
+    padding-bottom: 15px;
+}
+
+/* Asegura que los controles del formulario dentro del modal se vean bien */
+.modal-content .form-group {
+    margin-bottom: 20px; /* Espacio entre cada grupo de label e input */
+}
+
+.modal-content .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; /* Un poco menos negrita que los labels principales */
+    color: #333;
+    font-size: 0.95em;
+}
+
+
+.modal-content .form-control {
+    width: 100%;
+    padding: 12px 15px; /* Aumenta el padding interno de los inputs */
+    border: 1px solid #dcdcdc; /* Borde más suave */
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 1em;
+    color: #555;
+    background-color: #fcfcfc; /* Fondo ligeramente más claro */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Crucial para que el padding no desborde el ancho */
+}
+
+.modal-content .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+    background-color: #fff; /* Fondo blanco al enfocar */
+}
+
+/* Estilo específico para el 'Tipo de Cabaña' en el modal cuando está deshabilitado */
+.modal-content #tipo-cabana {
+    background-color: #e9ecef; /* Color gris suave para indicar que está preseleccionado y no editable */
+    font-weight: 500;
+    color: #333; /* Un color de texto más oscuro para que se lea bien */
+    cursor: not-allowed; /* Indicador de que no se puede interactuar */
+}
+
+.modal-content .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 30px; /* Más espacio antes del botón */
+    border-radius: 8px;
+    background-color: #28a745; /* Un verde vibrante para el botón de confirmar */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content .btn-primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Para los inputs de tipo date, asegura que el icono del calendario no interfiera con el texto */
+input[type="date"].form-control {
+    padding-right: 40px; /* Deja espacio para el icono */
+    /* Puedes añadir font-family para consistencia si es necesario */
+}
+
+/* Estilos para el placeholder (opcional, pero mejora la estética) */
+.modal-content .form-control::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Media query para pantallas pequeñas si es necesario */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 20px; /* Menos padding en móviles */
+    }
+    .modal-content h3 {
+        font-size: 1.6em;
+    }
+    .modal-content .btn-primary {
+        font-size: 1.1em;
+        padding: 12px;
+    }
+}
+
+.btn-clear-filter{
+     padding: 12px 30px;
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}

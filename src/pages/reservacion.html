@@ -29,60 +29,306 @@
         </div>
     </header>
 
-    <main>
-        <section class="section main-content-padding">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Realiza tu Reserva</h2>
-                    <p>Completa el formulario para reservar tu cabaña ideal y planificar tu escapada.</p>
-                </div>
-
-                <div class="form-container reservation-form">
-                    <h3>Detalles de la Reserva</h3>
-                    <form id="reservation-form" onsubmit="enviarReserva(event)">
+        <main>
+            <section class="section main-content-padding">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Encuentra tu Cabaña Ideal</h2>
+                        <p>Busca por fechas y número de huéspedes para encontrar la cabaña perfecta.</p>
+                    </div>
+                   <div class="reservation-search-container">
                         <div class="form-group">
-                            <label for="nombre-reserva">Nombre Completo:</label>
-                            <input type="text" id="nombre-reserva" name="nombre" class="form-control" required>
+                            <label for="search-checkin">Check in</label>
+                            <input type="date" id="search-checkin" name="checkin" class="form-control" value="2025-03-05" required>
                         </div>
                         <div class="form-group">
-                            <label for="email-reserva">Correo Electrónico:</label>
-                            <input type="email" id="email-reserva" name="email" class="form-control" required>
+                            <label for="search-checkout">Check out</label>
+                            <input type="date" id="search-checkout" name="checkout" class="form-control" value="2025-03-20" required>
                         </div>
                         <div class="form-group">
-                            <label for="telefono-reserva">Teléfono:</label>
-                            <input type="tel" id="telefono-reserva" name="telefono" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="tipo-cabana">Tipo de Cabaña:</label>
-                            <select id="tipo-cabana" name="tipoCabana" class="form-control" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="familiar">Cabaña Familiar</option>
-                                <option value="romantica">Cabaña Romántica</option>
-                                <option value="grupal">Cabaña Grupal</option>
+                            <label for="search-guests">Huéspedes</label>
+                            <select id="search-guests" name="guests" class="form-control" required>
+                                <option value="1">1 Personas</option>
+                                <option value="2">2 Personas</option>
+                                <option value="3">3 Personas</option>
+                                <option value="4">4 Personas</option>
+                                <option value="5">5 Personas</option>
+                                <option value="6">6 Personas</option>
+                                <option value="7">7 Personas</option>
+                                <option value="8">8 Personas</option>
+                                <option value="9">9 Personas</option>
+                                <option value="10">10 Personas</option>
+                                <option value="11">11 Personas</option>
+                                <option value="12">12 Personas</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="fecha-llegada">Fecha de Llegada:</label>
-                            <input type="date" id="fecha-llegada" name="fechaLlegada" class="form-control" required>
+                        <button type="button" class="btn-search">Buscar</button>
+                        <button type="button" class="btn-clear-filter">Limpiar Filtro</button>
+                    </div>
+
+                    <div class="cabin-listing-container" data-cabin-id="cabana1">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-bertellifotografia-1144694.jpg" alt="Cabaña Familiar con vista al lago">
                         </div>
-                        <div class="form-group">
-                            <label for="fecha-salida">Fecha de Salida:</label>
-                            <input type="date" id="fecha-salida" name="fechaSalida" class="form-control" required>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 1</h3>
+                                <h4>Cabaña familiar</h4>
+                                <p class="location">Rio lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>2 Camas Matrimoniales</span>
+                                    <span>Wifi</span>
+                                    <span>Patio con Hamaca</span>
+                                    <span>TV cable</span>
+                                    <span>Sofa cama</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 1,485.00</p>
+                                    <p class="cabin-listing-guests">2 Personas</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana1"
+                                    data-cabin-type="familiar1-2"
+                                    data-initial-guests="2">RESERVAR</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="huespedes">Número de Huéspedes:</label>
-                            <input type="number" id="huespedes" name="huespedes" class="form-control" min="1" required>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana2">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-enginakyurt-3011574.jpg" alt="Cabaña Familiar con vista al lago">
                         </div>
-                        <div class="form-group">
-                            <label for="comentarios">Comentarios Adicionales:</label>
-                            <textarea id="comentarios" name="comentarios" rows="4" class="form-control"></textarea>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 2</h3>
+                                <h4>Cabaña familiar</h4>
+                                <p class="location">Rio Lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>2 Camas Matrimoniales</span>
+                                    <span>Wifi</span>
+                                    <span>Patio con Hamaca</span>
+                                    <span>TV cable</span>
+                                    <span>Sofa cama</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 1,485.00</p>
+                                    <p class="cabin-listing-guests">2 Personas</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana2"
+                                    data-cabin-type="familiar1-2"
+                                    data-initial-guests="2">RESERVAR</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
-                    </form>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana3">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-fariphotography-803975.jpg" alt="Cabaña Familiar con vista al lago">
+                        </div>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 3</h3>
+                                <h4>Cabaña familiar</h4>
+                                <p class="location">Rio lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>2 Habitaciones/2 camas c/u</span>
+                                    <span>Wifi</span>
+                                    <span>Patio con Hamaca</span>
+                                    <span>TV cable</span>
+                                    <span>Cocineta</span>
+                                    <span>Baño Compatido</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 2,750.00</p>
+                                    <p class="cabin-listing-guests">4 Personas</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana3"
+                                    data-cabin-type="familiar3"
+                                    data-initial-guests="4">RESERVAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana4-pb">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-mateas-petru-210015-673788.jpg" alt="Cabaña Familiar con vista al lago">
+                        </div>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 4 Planta Baja</h3>
+                                <h4>Cabaña familiar/Grupal</h4>
+                                <p class="location">Rio Lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>2 Habitaciones</span>
+                                    <span>Wifi</span>
+                                    <span>Sala/Comedor</span>
+                                    <span>Tv Cable</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 3,080.00</p>
+                                    <p class="cabin-listing-guests">4 Personas</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana4-pb"
+                                    data-cabin-type="grupal-pb"
+                                    data-initial-guests="4">RESERVAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana4-pa">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-mateas-petru-210015-673788.jpg" alt="Cabaña Familiar con vista al lago">
+                        </div>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 4 Planta Alta</h3>
+                                <h4>Cabaña familiar/Grupal</h4>
+                                <p class="location">Rio Lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>3 Habitaciones</span>
+                                    <span>Wifi</span>
+                                    <span>TV Cable</span>
+                                    <span>Cocineta</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 2,750.00</p>
+                                    <p class="cabin-listing-guests">4 Personas</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana4-pa"
+                                    data-cabin-type="grupal-pa"
+                                    data-initial-guests="4">RESERVAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana5">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-pixabay-206648.jpg" alt="Cabaña 5 - Personal/Pareja">
+                        </div>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 5</h3>
+                                <h4>Cabaña Personal-Pareja</h4>
+                                <p class="location">Rio Lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>1 Cama Matrimonial</span>
+                                    <span>Wifi</span>
+                                    <span>Aire Acondicionado</span>
+                                    <span>Baño Privado</span>
+                                    <span>TV Cable</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 1,045.00</p>
+                                    <p class="cabin-listing-guests">1 Persona</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana5"
+                                    data-cabin-type="pareja"
+                                    data-initial-guests="1">RESERVAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cabin-listing-container" data-cabin-id="cabana6">
+                        <div class="cabin-listing-image">
+                            <img src="/public/img/pexels-zoe13c-2183521.jpg" alt="Cabaña 6 - Personal/Pareja">
+                        </div>
+                        <div class="cabin-listing-details">
+                            <div>
+                                <h3>Cabaña 6</h3>
+                                <h4>Cabaña Personal-Pareja</h4>
+                                <p class="location">Rio Lindo, Cortes</p>
+                                <div class="cabin-listing-amenities">
+                                    <span>1 Cama Matrimonial</span>
+                                    <span>Wifi</span>
+                                    <span>Aire Acondicionado</span>
+                                    <span>Baño Privado</span>
+                                    <span>TV Cable</span>
+                                </div>
+                            </div>
+                            <div class="cabin-listing-bottom">
+                                <div class="cabin-listing-price-info">
+                                    <p class="cabin-listing-price">L. 1,045.00</p>
+                                    <p class="cabin-listing-guests">1 Persona</p>
+                                </div>
+                                <button type="button" class="cabin-listing-book-btn"
+                                    data-cabin-id="cabana6"
+                                    data-cabin-type="pareja"
+                                    data-initial-guests="1">RESERVAR</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p id="total-reservation-price" style="font-size: 1.3em; font-weight: 600; text-align: center; margin-top: 20px;">Precio Total: L. 0.00</p>
+                    </div>
+
                 </div>
+            </section>
+        </main>
+
+<div class="modal-overlay" id="reservationModal">
+    <div class="modal-content">
+        <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+        <h3>Detalles de la Reserva</h3>
+        <form id="reservation-form" onsubmit="enviarReserva(event)">
+            <div class="form-group">
+                <label for="nombre-reserva">Nombre Completo:</label>
+                <input type="text" id="nombre-reserva" name="nombre" class="form-control" required>
             </div>
-        </section>
-    </main>
+            <div class="form-group">
+                <label for="email-reserva">Correo Electrónico:</label>
+                <input type="email" id="email-reserva" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono-reserva">Teléfono:</label>
+                <input type="tel" id="telefono-reserva" name="telefono" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="tipo-cabana">Tipo de Cabaña:</label>
+                <select id="tipo-cabana" name="tipoCabana" class="form-control" required readonly disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="familiar">Cabaña Familiar</option>
+                    <option value="grupal">Cabaña Grupal</option>
+                    <option value="pareja">Cabaña Personal/Pareja</option> 
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fecha-llegada">Fecha de Llegada:</label>
+                <input type="date" id="fecha-llegada" name="fechaLlegada" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha-salida">Fecha de Salida:</label>
+                <input type="date" id="fecha-salida" name="fechaSalida" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="huespedes">Número de Huéspedes:</label>
+                <input type="number" id="huespedes" name="huespedes" class="form-control" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="precio-total-reserva">Precio Total de la Reserva:</label>
+                <input type="text" id="precio-total-reserva" name="precioTotalReserva" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="comentarios">Comentarios Adicionales:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+        </form>
+    </div>
+</div>
+    
 
     <footer class="footer">
         <div class="container">
@@ -120,72 +366,401 @@
         </div>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-      (function() {
-        // Usa el mismo User ID de EmailJS que usas para el formulario de contacto
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
         emailjs.init("rFedF0yAlJlIJYk1b"); // REEMPLAZA CON TU USER ID REAL DE EMAILJS
-      })();
+    })();
 
-      function enviarReserva(e) {
+    // Define los detalles de las cabañas, incluyendo precios por persona y límites
+    const CABIN_DETAILS = {
+        "cabana1": { // Cabaña 1 (Familiar)
+            "name": "Cabaña 1",
+            "type": "familiar1-2",
+            "maxGuests": 5, // Límite para Cabaña 1 y 2
+            "pricesPerPerson": { // Precios para Cabaña 1 y 2
+                "2": 1485.00,
+                "3": 1980.00,
+                "4": 2552.00,
+                "5": 3025.00
+            }
+        },
+        "cabana2": { // Cabaña 2 (Familiar)
+            "name": "Cabaña 2",
+            "type": "familiar1-2",
+            "maxGuests": 5, // Límite para Cabaña 1 y 2
+            "pricesPerPerson": { // Precios para Cabaña 1 y 2
+                "2": 1485.00,
+                "3": 1980.00,
+                "4": 2552.00,
+                "5": 3025.00
+            }
+        },
+        "cabana3": { // Cabaña 3 (Familiar)
+            "name": "Cabaña 3",
+            "type": "familiar3",
+            "maxGuests": 8, // Límite para Cabaña 3
+            "pricesPerPerson": { // Precios para Cabaña 3
+                "4": 2750.00,
+                "5": 3300.00,
+                "6": 3828.00,
+                "7": 4350.00,
+                "8": 4840.00
+            }
+        },
+        "cabana4-pb": { // Cabaña 4 Planta Baja (Grupal)
+            "name": "Cabaña 4 Planta Baja",
+            "type": "grupal-pb",
+            "maxGuests": 6, // Límite para Cabaña 4 Planta Baja
+            "pricesPerPerson": { // Precios para Cabaña 4 Planta Baja
+                "4": 3080.00,
+                "5": 3575.00,
+                "6": 4092.00
+            }
+        },
+        "cabana4-pa": { // Cabaña 4 Planta Alta (Grupal)
+            "name": "Cabaña 4 Planta Alta",
+            "type": "grupal-pa",
+            "maxGuests": 12, // Límite para Cabaña 4 Planta Alta
+            "pricesPerPerson": { // Precios para Cabaña 4 Planta Alta
+                "4": 2750.00,
+                "5": 3437.00,
+                "6": 3960.00,
+                "7": 4466.00,
+                "8": 4840.00,
+                "9": 5148.00,
+                "10": 5500.00,
+                "11": 5676.00,
+                "12": 5742.00
+            }
+        },
+        "cabana5": { // Cabaña 5 (Personal/Pareja)
+            "name": "Cabaña 5",
+            "type": "pareja",
+            "maxGuests": 2, // Máximo 2 personas para Cabaña Personal/Pareja
+            "pricesPerPerson": {
+                "1": 1045.00, // Precio para 1 persona
+                "2": 1320.00 // Precio para 2 personas
+            }
+        },
+        "cabana6": { // Cabaña 6 (Personal/Pareja)
+            "name": "Cabaña 6",
+            "type": "pareja",
+            "maxGuests": 2, // Máximo 2 personas para Cabaña Personal/Pareja
+            "pricesPerPerson": {
+                "1": 1045.00, // Precio para 1 persona
+                "2": 1320.00 // Precio para 2 personas
+            }
+        }
+    };
+
+    function enviarReserva(e) {
         e.preventDefault();
 
-        // Validar que la fecha de salida sea posterior a la fecha de llegada
         const fechaLlegadaInput = document.getElementById('fecha-llegada');
         const fechaSalidaInput = document.getElementById('fecha-salida');
+        const modalGuestsInput = document.getElementById('huespedes');
+        const tipoCabanaSelect = document.getElementById('tipo-cabana');
+        const precioTotalInput = document.getElementById('precio-total-reserva');
 
         const fechaLlegada = new Date(fechaLlegadaInput.value);
         const fechaSalida = new Date(fechaSalidaInput.value);
+        const numGuests = parseInt(modalGuestsInput.value);
+        const selectedCabinId = tipoCabanaSelect.value;
+        const cabinInfo = CABIN_DETAILS[selectedCabinId];
 
         if (fechaSalida <= fechaLlegada) {
             alert('La fecha de salida debe ser posterior a la fecha de llegada.');
-            return false; // Detener el envío del formulario
+            return false;
         }
 
-        // Si la validación pasa, enviar con EmailJS
-        emailjs.sendForm('service_4sse7ds', 'template_uf59j1m', '#reservation-form')
-          .then(function(response) {
-            alert('¡Tu solicitud de reserva ha sido enviada! Te contactaremos pronto ✅');
-            document.getElementById("reservation-form").reset();
-          }, function(error) {
-            alert('Error al enviar la reserva ❌: ' + JSON.stringify(error));
-          });
-      }
+        if (cabinInfo && numGuests > cabinInfo.maxGuests) {
+            alert(`La ${cabinInfo.name} solo permite un máximo de ${cabinInfo.maxGuests} personas.`);
+            return false;
+        }
+        if (numGuests < 1) {
+            alert('El número de huéspedes debe ser al menos 1.');
+            return false;
+        }
 
-      // Opcional: Deshabilitar fechas pasadas en los calendarios
-      document.addEventListener('DOMContentLoaded', function() {
+        tipoCabanaSelect.removeAttribute('disabled');
+        precioTotalInput.removeAttribute('readonly');
+
+        emailjs.sendForm('service_4sse7ds', 'template_uf59j1m', '#reservation-form')
+            .then(function(response) {
+                alert('¡Tu solicitud de reserva ha sido enviada! Te contactaremos pronto ✅');
+                document.getElementById("reservation-form").reset();
+                tipoCabanaSelect.setAttribute('disabled', 'true');
+                precioTotalInput.setAttribute('readonly', 'true');
+                document.getElementById('reservationModal').classList.remove('active');
+            }, function(error) {
+                alert('Error al enviar la reserva ❌: ' + JSON.stringify(error));
+                tipoCabanaSelect.setAttribute('disabled', 'true');
+                precioTotalInput.setAttribute('readonly', 'true');
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
         const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1; // Months start at 0!
+        const year = today.getFullYear();
+        let mm = today.getMonth() + 1;
         let dd = today.getDate();
 
         if (dd < 10) dd = '0' + dd;
         if (mm < 10) mm = '0' + mm;
 
-        const minDate = yyyy + '-' + mm + '-' + dd;
+        const minDate = year + '-' + mm + '-' + dd;
 
+        document.getElementById('search-checkin').setAttribute('min', minDate);
+        document.getElementById('search-checkout').setAttribute('min', minDate);
         document.getElementById('fecha-llegada').setAttribute('min', minDate);
         document.getElementById('fecha-salida').setAttribute('min', minDate);
 
-        // Cuando cambia la fecha de llegada, ajustar la fecha mínima de salida
-        document.getElementById('fecha-llegada').addEventListener('change', function() {
-            const arrivalDate = new Date(this.value);
-            arrivalDate.setDate(arrivalDate.getDate() + 1); // Salida debe ser al menos al día siguiente
-            
-            const arrivalDay = arrivalDate.getDate().toString().padStart(2, '0');
-            const arrivalMonth = (arrivalDate.getMonth() + 1).toString().padStart(2, '0');
-            const arrivalYear = arrivalDate.getFullYear();
-            
-            const minDepartureDate = `${arrivalYear}-${arrivalMonth}-${arrivalDay}`;
-            document.getElementById('fecha-salida').setAttribute('min', minDepartureDate);
+        document.getElementById('search-checkin').addEventListener('change', function() {
+            const arrivalDateSearch = new Date(this.value);
+            arrivalDateSearch.setDate(arrivalDateSearch.getDate() + 1);
 
-            // Asegurarse de que si la fecha de salida actual es anterior a la nueva mínima, se borre
-            if (new Date(fechaSalidaInput.value) <= arrivalDate) {
-                fechaSalidaInput.value = '';
+            const arrivalDaySearch = arrivalDateSearch.getDate().toString().padStart(2, '0');
+            const arrivalMonthSearch = (arrivalDateSearch.getMonth() + 1).toString().padStart(2, '0');
+            const arrivalYearSearch = arrivalDateSearch.getFullYear();
+
+            const minDepartureDateSearch = `${arrivalYearSearch}-${arrivalMonthSearch}-${arrivalDaySearch}`;
+            document.getElementById('search-checkout').setAttribute('min', minDepartureDateSearch);
+
+            if (new Date(document.getElementById('search-checkout').value) <= arrivalDateSearch) {
+                document.getElementById('search-checkout').value = '';
             }
         });
-      });
-    </script>
-    <script src="/src/js/main.js"></script>
+
+        document.getElementById('fecha-llegada').addEventListener('change', function() {
+            const arrivalDateModal = new Date(this.value);
+            arrivalDateModal.setDate(arrivalDateModal.getDate() + 1);
+
+            const arrivalDayModal = arrivalDateModal.getDate().toString().padStart(2, '0');
+            const arrivalMonthModal = (arrivalDateModal.getMonth() + 1).toString().padStart(2, '0');
+            const arrivalYearModal = arrivalDateModal.getFullYear();
+
+            const minDepartureDateModal = `${arrivalYearModal}-${arrivalMonthModal}-${arrivalDayModal}`;
+            document.getElementById('fecha-salida').setAttribute('min', minDepartureDateModal);
+
+            if (new Date(document.getElementById('fecha-salida').value) <= arrivalDateModal) {
+                document.getElementById('fecha-salida').value = '';
+            }
+            updateModalPrice();
+        });
+
+        const reservationModal = document.getElementById('reservationModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const bookButtons = document.querySelectorAll('.cabin-listing-book-btn');
+        const tipoCabanaSelect = document.getElementById('tipo-cabana');
+        const searchCheckin = document.getElementById('search-checkin');
+        const searchCheckout = document.getElementById('search-checkout');
+        const searchGuests = document.getElementById('search-guests');
+        const modalCheckin = document.getElementById('fecha-llegada');
+        const modalCheckout = document.getElementById('fecha-salida');
+        const modalGuests = document.getElementById('huespedes');
+        const precioTotalFormInput = document.getElementById('precio-total-reserva');
+        const allCabinListings = document.querySelectorAll('.cabin-listing-container');
+        const btnClearFilter = document.querySelector('.btn-clear-filter'); // Nuevo: Referencia al botón de limpiar filtro
+
+
+        function updateModalPrice() {
+            const cabinId = tipoCabanaSelect.value;
+            const numGuests = parseInt(modalGuests.value);
+            const checkinDate = new Date(modalCheckin.value);
+            const checkoutDate = new Date(modalCheckout.value);
+
+            let totalPrice = 0;
+            let pricePerNight = 0;
+            let numberOfNights = 0;
+
+            if (checkinDate.toString() !== 'Invalid Date' && checkoutDate.toString() !== 'Invalid Date' && checkoutDate > checkinDate) {
+                const diffTime = Math.abs(checkoutDate - checkinDate);
+                numberOfNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            }
+
+            const details = CABIN_DETAILS[cabinId];
+
+            if (details) {
+                if (details.pricesPerPerson && details.pricesPerPerson[numGuests]) {
+                    pricePerNight = details.pricesPerPerson[numGuests];
+                } else {
+                    pricePerNight = 0;
+                }
+
+                totalPrice = pricePerNight * numberOfNights;
+            }
+
+            precioTotalFormInput.value = `L. ${totalPrice.toLocaleString('es-HN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        modalGuests.addEventListener('change', updateModalPrice);
+        modalCheckout.addEventListener('change', updateModalPrice);
+        tipoCabanaSelect.addEventListener('change', updateModalPrice);
+
+        bookButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const cabinId = this.getAttribute('data-cabin-id');
+                const cabinType = this.getAttribute('data-cabin-type');
+                const initialGuestsForCabin = parseInt(this.getAttribute('data-initial-guests') || '1');
+
+                const cabinDetails = CABIN_DETAILS[cabinId];
+
+                if (!cabinDetails) {
+                    console.error("Detalles de la cabaña no encontrados para el ID:", cabinId);
+                    return;
+                }
+
+                tipoCabanaSelect.innerHTML = '';
+                const option = document.createElement('option');
+                option.value = cabinId;
+                option.textContent = cabinDetails.name;
+                tipoCabanaSelect.appendChild(option);
+                tipoCabanaSelect.value = cabinId;
+                tipoCabanaSelect.setAttribute('disabled', 'true');
+
+                modalGuests.setAttribute('max', cabinDetails.maxGuests);
+
+                if (searchCheckin.value) {
+                    modalCheckin.value = searchCheckin.value;
+                }
+                if (searchCheckout.value) {
+                    modalCheckout.value = searchCheckout.value;
+                }
+                let guestsFromSearch = parseInt(searchGuests.value);
+                if (isNaN(guestsFromSearch) || guestsFromSearch < 1 || guestsFromSearch > cabinDetails.maxGuests) {
+                    modalGuests.value = initialGuestsForCabin;
+                } else {
+                    modalGuests.value = guestsFromSearch;
+                }
+
+                updateModalPrice();
+                reservationModal.classList.add('active');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            reservationModal.classList.remove('active');
+            document.getElementById("reservation-form").reset();
+            tipoCabanaSelect.innerHTML = '<option value="">Selecciona una opción</option><option value="familiar">Cabaña Familiar</option><option value="grupal">Cabaña Grupal</option><option value="pareja">Cabaña Personal/Pareja</option>';
+            tipoCabanaSelect.setAttribute('disabled', 'true');
+            modalGuests.removeAttribute('max');
+            precioTotalFormInput.value = 'L. 0.00';
+        });
+
+        reservationModal.addEventListener('click', function(e) {
+            if (e.target === reservationModal) {
+                reservationModal.classList.remove('active');
+                document.getElementById("reservation-form").reset();
+                tipoCabanaSelect.innerHTML = '<option value="">Selecciona una opción</option><option value="familiar">Cabaña Familiar</option><option value="grupal">Cabaña Grupal</option><option value="pareja">Cabaña Personal/Pareja</option>';
+                tipoCabanaSelect.setAttribute('disabled', 'true');
+                modalGuests.removeAttribute('max');
+                precioTotalFormInput.value = 'L. 0.00';
+            }
+        });
+
+        // *** FUNCIÓN PARA EL BOTÓN "BUSCAR" (EXISTENTE) ***
+        document.querySelector('.btn-search').addEventListener('click', function() {
+            const checkinDateStr = document.getElementById('search-checkin').value;
+            const checkoutDateStr = document.getElementById('search-checkout').value;
+            const guests = parseInt(document.getElementById('search-guests').value);
+
+            if (!checkinDateStr || !checkoutDateStr || isNaN(guests)) {
+                alert('Por favor, selecciona fechas de check-in, check-out y número de huéspedes válidos.');
+                return;
+            }
+
+            const checkinDate = new Date(checkinDateStr);
+            const checkoutDate = new Date(checkoutDateStr);
+
+            if (checkoutDate <= checkinDate) {
+                alert('La fecha de salida debe ser posterior a la fecha de llegada.');
+                return;
+            }
+
+            let foundCabin = false;
+            const noResultsMessage = document.getElementById('no-results-message');
+
+            allCabinListings.forEach(listing => {
+                const cabinId = listing.getAttribute('data-cabin-id');
+                const cabinInfo = CABIN_DETAILS[cabinId];
+
+                if (cabinInfo) {
+                    const minGuests = Object.keys(cabinInfo.pricesPerPerson).length > 0 ? parseInt(Object.keys(cabinInfo.pricesPerPerson)[0]) : 1;
+                    const supportsGuests = guests <= cabinInfo.maxGuests && guests >= minGuests;
+
+                    if (supportsGuests) {
+                        listing.style.display = 'block';
+                        foundCabin = true;
+                    } else {
+                        listing.style.display = 'none';
+                    }
+                } else {
+                    listing.style.display = 'none';
+                }
+            });
+
+            if (!foundCabin) {
+                 if (!noResultsMessage) {
+                    const container = document.querySelector('.cabin-listing-container').parentNode;
+                    const newDiv = document.createElement('div');
+                    newDiv.id = 'no-results-message';
+                    newDiv.style.textAlign = 'center';
+                    newDiv.style.marginTop = '20px';
+                    newDiv.style.fontSize = '1.2em';
+                    newDiv.style.color = '#FF0000';
+                    newDiv.textContent = 'No se encontraron cabañas disponibles con los criterios de búsqueda seleccionados.';
+                    container.appendChild(newDiv);
+                 } else {
+                    noResultsMessage.style.display = 'block';
+                 }
+            } else {
+                if (noResultsMessage) {
+                    noResultsMessage.style.display = 'none';
+                }
+            }
+
+            modalCheckin.value = checkinDateStr;
+            modalCheckout.value = checkoutDateStr;
+            modalGuests.value = guests;
+        });
+
+        // *** NUEVA FUNCIÓN PARA EL BOTÓN "LIMPIAR FILTRO" ***
+        btnClearFilter.addEventListener('click', function() {
+            // 1. Mostrar todas las cabañas
+            allCabinListings.forEach(listing => {
+                listing.style.display = 'block';
+            });
+
+            // 2. Limpiar los campos de búsqueda
+            searchCheckin.value = '';
+            searchCheckout.value = '';
+            searchGuests.value = '1'; // Puedes establecer un valor por defecto o dejarlo vacío
+
+            // 3. Ocultar el mensaje de "no results" si está visible
+            const noResultsMessage = document.getElementById('no-results-message');
+            if (noResultsMessage) {
+                noResultsMessage.style.display = 'none';
+            }
+
+            // Opcional: Si quieres reiniciar los valores de fecha mínima
+            const today = new Date();
+            const year = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+            const minDate = year + '-' + mm + '-' + dd;
+            searchCheckin.setAttribute('min', minDate);
+            searchCheckout.setAttribute('min', minDate);
+        });
+
+        // Asegúrate de que el mensaje de "no results" esté oculto al cargar la página
+        const initialNoResultsMessage = document.getElementById('no-results-message');
+        if (initialNoResultsMessage) {
+            initialNoResultsMessage.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>
